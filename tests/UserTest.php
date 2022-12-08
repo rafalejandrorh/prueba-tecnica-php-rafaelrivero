@@ -13,6 +13,11 @@ class UserTest extends TestCase{
         $this->users = new User();
     }
 
+    public function tearDown():void
+    {
+        unset($this->users);
+    }
+
     public function testUserGetDataUser()
     {
         $user = 'rafael.rivero';

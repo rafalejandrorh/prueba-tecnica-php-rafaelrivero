@@ -13,6 +13,11 @@ class UserRepositoryTest extends TestCase{
         $this->userRepository = new UserRepository();
     }
 
+    public function tearDown():void
+    {
+        unset($this->userRepository);
+    }
+
     public function testUserRepositoryCreate()
     {
         $user = 'rafael.rivero';
