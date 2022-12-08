@@ -18,15 +18,19 @@ class UserRepositoryTest extends TestCase{
         unset($this->userRepository);
     }
 
-    public function testUserRepositoryCreate()
+    public function getDataUserProvider()
     {
-        $user = 'rafael.rivero';
-        $identification = '27903883';
-        $firstname = 'Rafael';
-        $lastname = 'Rivero';
-        $contactNumber = '4241385808';
-        $email = 'rafalejandrorivero@gmail.com';
-        
+        return [
+            ['rafael.rivero', '27903883', 'Rafael', 'Rivero', '4241385808', 'rafalejandrorivero@gmail.com'],
+            ['alejandro.herrera', '388303972', 'Alejandro', 'Herrera', '4120187171', 'alejandroherrera@gmail.com']
+        ];
+    }
+
+    /**
+     * @dataProvider getDataUserProvider
+     */
+    public function testUserRepositoryCreate($user, $identification, $firstname, $lastname, $contactNumber, $email)
+    {
         $result = $this->userRepository->create($user, $identification, $firstname, $lastname, $contactNumber, $email);
         $this->assertArrayHasKey('message', $result);
     }

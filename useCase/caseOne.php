@@ -17,10 +17,8 @@ $users->setDataUser($user, $identification, $firstname, $lastname, $contactNumbe
 
 $response = $userRepository->create($user, $identification, $firstname, $lastname, $contactNumber, $email);
 
-print_r($response);
-
+echo $response;
 echo "\n";
-
-print_r($users->getDataUser());
+echo $users->getDataUser();
 
 ?>
