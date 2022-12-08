@@ -1,9 +1,26 @@
 <?php
 
 require_once("../models/UserRepository.php");
+require_once("../models/User.php");
 
-$prueba = new UserRepository();
+$user = $_GET['user'];
+$identification = $_GET['identification'];
+$firstname = $_GET['firstname'];
+$lastname = $_GET['lastname'];
+$contactNumber = $_GET['contactNumber'];
+$email = $_GET['email'];
 
-print_r($prueba->getAllData());
+$users = new User();
+$userRepository = new UserRepository();
+
+$users->setDataUser($user, $identification, $firstname, $lastname, $contactNumber, $email);
+
+$response = $userRepository->create($user, $identification, $firstname, $lastname, $contactNumber, $email);
+
+print_r($response);
+
+echo "\n";
+
+print_r($users->getDataUser());
 
 ?>

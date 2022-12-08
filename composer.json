@@ -1,4 +1,10 @@
 {
+    "autoload": {
+        "classmap": [
+            "models/",
+            "useCase/"
+        ]
+    },
     "require": {
         "phpunit/phpunit": "^9.5"
     }

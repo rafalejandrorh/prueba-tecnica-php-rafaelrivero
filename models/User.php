@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Rafael Rivero
+*/
+
 class User{
 
     private $user;
@@ -7,9 +11,23 @@ class User{
     private $lastname;
     private $contactNumber;
     private $email;
+    private $identification;
+
+    public function setDataUser($user, $identification, $firstname, $lastname, $contactNumber, $email){
+        $this->user = $user;
+        $this->identification = $identification;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->contactNumber = $contactNumber;
+        $this->email = $email;
+    }
 
     public function setUser($user){
         $this->user = $user;
+    }
+
+    public function setIdentification($identification){
+        $this->identification = $identification;
     }
 
     public function setFirstname($firstname){
@@ -28,8 +46,23 @@ class User{
         $this->email = $email;
     }
 
+    public function getDataUser(){
+        return array(
+            'User' => $this->user,
+            'Identification' => $this->identification,
+            'Firstname' => $this->firstname,
+            'Lastname' => $this->lastname,
+            'ContactNumber' => $this->contactNumber,
+            'Email' => $this->email
+        );
+    }
+
     public function getUser(){
         return $this->user;
+    }
+
+    public function getIdentification(){
+        return $this->identification;
     }
 
     public function getFirstname(){
